@@ -1,7 +1,7 @@
-// var sound = new Howl({
-//   src: ['bubbles.mp3']
-// });
+keyboardJS.bind('a', function(e) {
+  // this function will once run once even if a is held
+  // e.preventRepeat();
+  console.log("AAA");
+  sounds[0].play();
+});
 
-sounds[0].play();
-
-// ls *.mp3 | sed 's/^/new Howl({src: ["/; s/$/"]}),/' > sounds.txt 
