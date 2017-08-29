@@ -1,5 +1,7 @@
-var sound = new Howl({
-  src: ['bubbles.mp3']
-});
+// var sound = new Howl({
+//   src: ['bubbles.mp3']
+// });
 
-sound.play();
+sounds[0].play();
+
+// ls *.mp3 | sed 's/^/new Howl({src: ["/; s/$/"]}),/' > sounds.txt 
