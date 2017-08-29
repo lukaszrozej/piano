@@ -1,7 +1,10 @@
-keyboardJS.bind('a', function(e) {
-  // this function will once run once even if a is held
-  // e.preventRepeat();
-  console.log("AAA");
-  sounds[0].play();
-});
+window.addEventListener("keydown", function (event) {
+	console.log(event.key);
+	sounds[0].play();
+}, false);
+
+// keyboardJS.bind('a', function(e) {
+// 	console.log("AAA");
+//   sounds[0].play();
+// });
 
