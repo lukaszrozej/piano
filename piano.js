@@ -1,10 +1,10 @@
 window.addEventListener("keydown", function (event) {
-	console.log(event.key);
-	sounds[0].play();
+	console.log("DOWN: " + event.key + "  " + event.keyCode);
+	// sounds[0].play();
 }, false);
 
-// keyboardJS.bind('a', function(e) {
-// 	console.log("AAA");
-//   sounds[0].play();
-// });
+window.addEventListener("keyup", function (event) {
+	console.log("  UP: " + event.key + "  " + event.keyCode);
+	// sounds[0].play();
+}, false);
 
