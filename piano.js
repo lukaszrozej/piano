@@ -72,6 +72,8 @@ window.addEventListener("keydown", function (event) {
 
 window.addEventListener("keyup", function (event) {
 	down[event.key] = false;
-	// sounds[0].play();
+    if(keys[event.key]){
+        sounds[keys[event.key]].stop();
+    }
 }, false);
 
