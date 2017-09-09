@@ -61,14 +61,18 @@ const keys = {
     "p": 29
 };
 
-var octave = 0;
+
+function getSound(key) {
+    var octave = 0;
+    return sounds[keys[key] + 12*octave]
+}
 
 window.addEventListener("keydown", function (event) {
     const key = event.key
     if(!down[key]) {
         down[key] = true
         if(keys[key]){
-            sounds[keys[key] + 12*octave].play();
+            getSound(key).play();
         }
     }
 }, false);
@@ -77,7 +81,7 @@ window.addEventListener("keyup", function (event) {
     const key = event.key
     down[key] = false;
     if(keys[key]){
-        sounds[keys[key] + 12*octave].stop();
+        getSound(key).stop();
     }
 }, false);
 
