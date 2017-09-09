@@ -1,0 +1,2 @@
+- add play and stop to piano, get rid of getSound
+- add octaveUp, octaveDown to piano
