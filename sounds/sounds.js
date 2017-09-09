@@ -1,4 +1,4 @@
-function getSound(key) {
+function createPiano() {
     // ls *.mp3 | sed 's/^/new Howl({\n    src: ["sounds\//; s/$/"]\n}),/' > sounds.js
     const sounds = [
         new Howl({
@@ -195,8 +195,14 @@ function getSound(key) {
         })
     ];
     var octave = 0;
-    return sounds[keys[key] + 12*octave]
+    function getSound(key) {
+        return sounds[keys[key] + 12*octave]
+    }
+    return {
+        getSound
+    }
 }
+
 
 // new Howl({
 //     src: ["sounds/39213__jobro__piano-ff-085.mp3"]

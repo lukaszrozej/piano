@@ -61,12 +61,14 @@ const keys = {
     "p": 29
 };
 
+const piano = createPiano()
+
 window.addEventListener("keydown", function (event) {
     const key = event.key
     if(!down[key]) {
         down[key] = true
         if(keys[key]){
-            getSound(key).play();
+            piano.getSound(key).play();
         }
     }
 }, false);
@@ -75,7 +77,7 @@ window.addEventListener("keyup", function (event) {
     const key = event.key
     down[key] = false;
     if(keys[key]){
-        getSound(key).stop();
+        piano.getSound(key).stop();
     }
 }, false);
 
