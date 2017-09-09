@@ -61,12 +61,6 @@ const keys = {
     "p": 29
 };
 
-
-function getSound(key) {
-    var octave = 0;
-    return sounds[keys[key] + 12*octave]
-}
-
 window.addEventListener("keydown", function (event) {
     const key = event.key
     if(!down[key]) {
