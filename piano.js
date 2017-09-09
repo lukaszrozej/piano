@@ -64,18 +64,20 @@ const keys = {
 var octave = 0;
 
 window.addEventListener("keydown", function (event) {
-	if(!down[event.key]) {
-		down[event.key] = true;
-		if(keys[event.key]){
-			sounds[keys[event.key] + 12*octave].play();
-		}
-	}
+    const key = event.key
+    if(!down[key]) {
+        down[key] = true
+        if(keys[key]){
+            sounds[keys[key] + 12*octave].play();
+        }
+    }
 }, false);
 
 window.addEventListener("keyup", function (event) {
-	down[event.key] = false;
-    if(keys[event.key]){
-        sounds[keys[event.key] + 12*octave].stop();
+    const key = event.key
+    down[key] = false;
+    if(keys[key]){
+        sounds[keys[key] + 12*octave].stop();
     }
 }, false);
 
