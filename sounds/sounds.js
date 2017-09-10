@@ -193,13 +193,67 @@ function createPiano() {
         new Howl({
             src: ["sounds/39212__jobro__piano-ff-064.mp3"]
         })
-    ];
-    var octave = 0;
+    ]
+
+    var pressed = {
+        "z": false,
+        "s": false,
+        "x": false,
+        "d": false,
+        "c": false,
+        "v": false,
+        "g": false,
+        "b": false,
+        "h": false,
+        "n": false,
+        "j": false,
+        "m": false,
+        "q": false,
+        "2": false,
+        "w": false,
+        "3": false,
+        "e": false,
+        "r": false,
+        "5": false,
+        "t": false,
+        "6": false,
+        "y": false,
+        "7": false,
+        "u": false,
+        "i": false,
+        "9": false,
+        "o": false,
+        "0": false,
+        "p": false
+    }
+
+    var octave = 0
+
     function getSound(key) {
         return sounds[keys[key] + 12*octave]
     }
+
+    function play(key) {
+        if(!pressed[key]) {
+            pressed[key] = true
+            if(keys[key]){
+                getSound(key).play()
+            }
+        }
+    }
+
+    function stop(key) {
+        if (pressed[key] !== undefined) {
+            pressed[key] = false
+            if (keys[key]) {
+                getSound(key).stop()
+            }
+        }
+    }
+
     return {
-        getSound
+        play,
+        stop
     }
 }
 

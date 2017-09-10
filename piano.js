@@ -1,34 +1,3 @@
-var down = {
-    "z": false,
-    "s": false,
-    "x": false,
-    "d": false,
-    "c": false,
-    "v": false,
-    "g": false,
-    "b": false,
-    "h": false,
-    "n": false,
-    "j": false,
-    "m": false,
-    "q": false,
-    "2": false,
-    "w": false,
-    "3": false,
-    "e": false,
-    "r": false,
-    "5": false,
-    "t": false,
-    "6": false,
-    "y": false,
-    "7": false,
-    "u": false,
-    "i": false,
-    "9": false,
-    "o": false,
-    "0": false,
-    "p": false
-};
 const keys = {
     "z": 1,
     "s": 2,
@@ -64,20 +33,10 @@ const keys = {
 const piano = createPiano()
 
 window.addEventListener("keydown", function (event) {
-    const key = event.key
-    if(!down[key]) {
-        down[key] = true
-        if(keys[key]){
-            piano.getSound(key).play();
-        }
-    }
-}, false);
+    piano.play(event.key)
+}, false)
 
 window.addEventListener("keyup", function (event) {
-    const key = event.key
-    down[key] = false;
-    if(keys[key]){
-        piano.getSound(key).stop();
-    }
-}, false);
+    piano.stop(event.key)
+}, false)
 
