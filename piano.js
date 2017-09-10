@@ -33,7 +33,14 @@ const keys = {
 const piano = createPiano()
 
 window.addEventListener("keydown", function (event) {
-    piano.play(event.key)
+    const key = event.key
+    if (key === 'PageUp') {
+        piano.octaveUp()
+    } else if (key === 'PageDown') {
+        piano.octaveDown()
+    } else {
+        piano.play(key)
+    }
 }, false)
 
 window.addEventListener("keyup", function (event) {

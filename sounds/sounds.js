@@ -227,7 +227,19 @@ function createPiano() {
         "p": false
     }
 
-    var octave = 0
+    var octave = 1
+
+    function octaveUp() {
+        if (octave < 3) {
+            octave += 1
+        }
+    }
+
+    function octaveDown() {
+        if (octave > 0) {
+            octave -= 1
+        }
+    }
 
     function getSound(key) {
         return sounds[keys[key] + 12*octave]
@@ -253,7 +265,9 @@ function createPiano() {
 
     return {
         play,
-        stop
+        stop,
+        octaveUp,
+        octaveDown
     }
 }
 
