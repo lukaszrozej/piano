@@ -1,2 +1,1 @@
-- show octave
 - space bar as pedal
