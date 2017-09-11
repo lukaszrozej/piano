@@ -228,16 +228,19 @@ function createPiano() {
     }
 
     var octave = 1
+    var octaveHTML = document.getElementById("octave")
 
     function octaveUp() {
         if (octave < 3) {
             octave += 1
+            octaveHTML.textContent = octave.toString()
         }
     }
 
     function octaveDown() {
         if (octave > 0) {
             octave -= 1
+            octaveHTML.textContent = octave.toString()
         }
     }
 
