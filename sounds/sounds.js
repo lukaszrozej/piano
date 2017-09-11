@@ -258,9 +258,11 @@ function createPiano() {
         "0": 28,
         "p": 29
     }
-    
+
     var octave = 1
     var octaveHTML = document.getElementById("octave")
+
+    var pedal = false
 
     function octaveUp() {
         if (octave < 3) {
@@ -276,6 +278,19 @@ function createPiano() {
         }
     }
 
+    function pedalDown() {
+        pedal = true
+    }
+
+    function pedalUp() {
+        pedal = false
+        for (var [key, isPressed] of Object.entries(pressed)) {
+            if (!isPressed) {
+                getSound(key).stop()
+            }
+        }
+    }
+
     function getSound(key) {
         return sounds[keys[key] + 12*octave]
     }
@@ -284,7 +299,7 @@ function createPiano() {
         if(!pressed[key]) {
             pressed[key] = true
             if(keys[key]){
-                getSound(key).play()
+                getSound(key).stop().play()
             }
         }
     }
@@ -292,7 +307,7 @@ function createPiano() {
     function stop(key) {
         if (pressed[key] !== undefined) {
             pressed[key] = false
-            if (keys[key]) {
+            if (keys[key] && !pedal) {
                 getSound(key).stop()
             }
         }
@@ -302,7 +317,9 @@ function createPiano() {
         play,
         stop,
         octaveUp,
-        octaveDown
+        octaveDown,
+        pedalDown,
+        pedalUp
     }
 }
 
