@@ -292,6 +292,7 @@ function createPiano() {
             pedal = false
             pedalHTML.classList.remove("pressed")
             for (var [key, isPressed] of Object.entries(pressed)) {
+            console.log("key: ", key, "pressed: ", isPressed)
                 if (!isPressed) {
                     getSound(key).stop()
                 }
@@ -314,7 +315,8 @@ function createPiano() {
     }
 
     function play(key) {
-        if(!pressed[key]) {
+        const isPressed = pressed[key]
+        if(isPressed !== undefined && !isPressed) {
             pressed[key] = true
             if(keys[key]){
                 getSound(key).stop().play()

@@ -2,14 +2,13 @@ const piano = createPiano()
 
 window.addEventListener("keydown", function (event) {
     const key = event.key
-    console.log(key, event.ctrlKey)
+    // console.log(key, event.ctrlKey)
     if (key === 'PageUp') {
         piano.octaveUp()
     } else if (key === 'PageDown') {
         piano.octaveDown()
     } else if (key === ' ') {
         if (event.ctrlKey) {
-            console.log("lock")
             piano.pedalToggleLock()
         } else {
             piano.pedalDown()

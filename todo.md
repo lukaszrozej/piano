@@ -1,1 +1,2 @@
+- refactor pedal?
 - show keys pressed/not pressed
