@@ -1,2 +1,1 @@
-- show pedal pressed/not pressed
 - show keys pressed/not pressed

@@ -2,3 +2,16 @@
 	font-size: 2em;
 	font-weight: bold;
 }
+
+#pedal {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+#pedal:not(.pressed) {
+	color: #aaa;
+}
+
+.pressed {
+	color: black;
+}

@@ -262,7 +262,6 @@ function createPiano() {
     var octave = 1
     var octaveHTML = document.getElementById("octave")
 
-    var pedal = false
 
     function octaveUp() {
         if (octave < 3) {
@@ -278,12 +277,18 @@ function createPiano() {
         }
     }
 
+
+    var pedal = false
+    var pedalHTML = document.getElementById("pedal")
+
     function pedalDown() {
         pedal = true
+        pedalHTML.classList.add("pressed")
     }
 
     function pedalUp() {
         pedal = false
+        pedalHTML.classList.remove("pressed")
         for (var [key, isPressed] of Object.entries(pressed)) {
             if (!isPressed) {
                 getSound(key).stop()
