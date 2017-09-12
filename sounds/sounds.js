@@ -279,6 +279,7 @@ function createPiano() {
 
 
     var pedal = false
+    var pedalLocked = false
     var pedalHTML = document.getElementById("pedal")
 
     function pedalDown() {
@@ -287,12 +288,24 @@ function createPiano() {
     }
 
     function pedalUp() {
-        pedal = false
-        pedalHTML.classList.remove("pressed")
-        for (var [key, isPressed] of Object.entries(pressed)) {
-            if (!isPressed) {
-                getSound(key).stop()
+        if (!pedalLocked) {
+            pedal = false
+            pedalHTML.classList.remove("pressed")
+            for (var [key, isPressed] of Object.entries(pressed)) {
+                if (!isPressed) {
+                    getSound(key).stop()
+                }
             }
+        }
+    }
+
+    function pedalToggleLock() {
+        if (!pedalLocked) {
+            pedalDown()
+            pedalLocked = true
+        } else {
+            pedalLocked = false
+            pedalUp()
         }
     }
 
@@ -324,7 +337,8 @@ function createPiano() {
         octaveUp,
         octaveDown,
         pedalDown,
-        pedalUp
+        pedalUp,
+        pedalToggleLock
     }
 }
 
