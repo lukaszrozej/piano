@@ -232,7 +232,7 @@ function createPiano() {
         "p": false
     }
 
-    const keys = {
+    const notes = {
         "z": 0,
         "s": 1,
         "x": 2,
@@ -269,9 +269,10 @@ function createPiano() {
         "p": 28
     }
 
+    var keysHTML = document.querySelectorAll(".key")
+
     var octave = 1
     var octaveHTML = document.getElementById("octave")
-
 
     function octaveUp() {
         if (octave < 3) {
@@ -302,8 +303,9 @@ function createPiano() {
             pedal = false
             pedalHTML.classList.remove("pressed")
             for (var [key, isPressed] of Object.entries(pressed)) {
-            console.log("key: ", key, "pressed: ", isPressed)
                 if (!isPressed) {
+                    const note = notes[key]
+                    keysHTML[note].classList.remove("pressed")
                     getSound(key).stop()
                 }
             }
@@ -321,23 +323,25 @@ function createPiano() {
     }
 
     function getSound(key) {
-        return sounds[keys[key] + 12*octave]
+        return sounds[notes[key] + 12*octave]
     }
 
     function play(key) {
         const isPressed = pressed[key]
         if(isPressed !== undefined && !isPressed) {
             pressed[key] = true
-            if(keys[key] !== undefined){
-                getSound(key).stop().play()
-            }
+            const note = notes[key]
+            keysHTML[note].classList.add("pressed")
+            getSound(key).stop().play()
         }
     }
 
     function stop(key) {
         if (pressed[key] !== undefined) {
             pressed[key] = false
-            if (keys[key] !== undefined && !pedal) {
+            const note = notes[key]
+            keysHTML[note].classList.remove("pressed")
+            if (!pedal) {
                 getSound(key).stop()
             }
         }

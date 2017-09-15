@@ -14,20 +14,27 @@
 }
 
 .white {
-	width: calc(100% / 14 - 2px);
-	background: white;
+	width: calc(100% / 17 - 2px);
+	background: #eee;
 	border: 1px solid #aaa;
 	height: 100%;
 }
 
+.white.pressed {
+	background: #fff;
+}
+
 .black {
-	/*display: none;*/
-	width: calc(70% / 14 - 2px);
+	width: calc(70% / 17 - 2px);
 	background: #555;
 	border: 1px solid #000;
 	height: 70%;
 	position: relative;
-	margin: 0 calc(-70%/28 - 1px);
+	margin: 0 calc(-70%/34 - 1px);
+}
+
+.black.pressed {
+	background: #000;
 }
 
 #octave {
@@ -46,6 +53,6 @@
 	color: #aaa;
 }
 
-.pressed {
+#pedal.pressed {
 	color: black;
 }
