@@ -208,6 +208,11 @@ function createPiano() {
         "n": false,
         "j": false,
         "m": false,
+        ",": false,
+        "l": false,
+        ".": false,
+        ";": false,
+        "/": false,
         "q": false,
         "2": false,
         "w": false,
@@ -228,35 +233,40 @@ function createPiano() {
     }
 
     const keys = {
-        "z": 1,
-        "s": 2,
-        "x": 3,
-        "d": 4,
-        "c": 5,
-        "v": 6,
-        "g": 7,
-        "b": 8,
-        "h": 9,
-        "n": 10,
-        "j": 11,
-        "m": 12,
-        "q": 13,
-        "2": 14,
-        "w": 15,
-        "3": 16,
-        "e": 17,
-        "r": 18,
-        "5": 19,
-        "t": 20,
-        "6": 21,
-        "y": 22,
-        "7": 23,
-        "u": 24,
-        "i": 25,
-        "9": 26,
-        "o": 27,
-        "0": 28,
-        "p": 29
+        "z": 0,
+        "s": 1,
+        "x": 2,
+        "d": 3,
+        "c": 4,
+        "v": 5,
+        "g": 6,
+        "b": 7,
+        "h": 8,
+        "n": 9,
+        "j": 10,
+        "m": 11,
+        ",": 12,
+        "l": 13,
+        ".": 14,
+        ";": 15,
+        "/": 16,
+        "q": 12,
+        "2": 13,
+        "w": 14,
+        "3": 15,
+        "e": 16,
+        "r": 17,
+        "5": 18,
+        "t": 19,
+        "6": 20,
+        "y": 21,
+        "7": 22,
+        "u": 23,
+        "i": 24,
+        "9": 25,
+        "o": 26,
+        "0": 27,
+        "p": 28
     }
 
     var octave = 1
@@ -318,7 +328,7 @@ function createPiano() {
         const isPressed = pressed[key]
         if(isPressed !== undefined && !isPressed) {
             pressed[key] = true
-            if(keys[key]){
+            if(keys[key] !== undefined){
                 getSound(key).stop().play()
             }
         }
@@ -327,7 +337,7 @@ function createPiano() {
     function stop(key) {
         if (pressed[key] !== undefined) {
             pressed[key] = false
-            if (keys[key] && !pedal) {
+            if (keys[key] !== undefined && !pedal) {
                 getSound(key).stop()
             }
         }

@@ -2,7 +2,6 @@ const piano = createPiano()
 
 window.addEventListener("keydown", function (event) {
     const key = event.key
-    // console.log(key, event.ctrlKey)
     if (key === 'PageUp') {
         piano.octaveUp()
     } else if (key === 'PageDown') {
