@@ -1,11 +1,45 @@
+#keyboard {
+	background: #0a0;
+	width: 90%;
+	height: 400px;
+	margin: 0 auto;
+}
+
+.key {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	float: left;
+	border-radius: 0 0 5px 5px;
+}
+
+.white {
+	width: calc(100% / 14 - 2px);
+	background: white;
+	border: 1px solid #aaa;
+	height: 100%;
+}
+
+.black {
+	/*display: none;*/
+	width: calc(70% / 14 - 2px);
+	background: #555;
+	border: 1px solid #000;
+	height: 70%;
+	position: relative;
+	margin: 0 calc(-70%/28 - 1px);
+}
+
 #octave {
 	font-size: 2em;
 	font-weight: bold;
+	width: 100%
 }
 
 #pedal {
 	font-size: 2em;
 	font-weight: bold;
+	width: 100%
 }
 
 #pedal:not(.pressed) {
